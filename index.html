@@ -18,7 +18,8 @@
      ============================================================ */
   const CHECKOUT_KITCHEN = "https://pay.hotmart.com/N108356715G?checkoutMode=10";
   const CHECKOUT_ROADTRIP = "https://pay.hotmart.com/P108357485K?off=otqruphe&checkoutMode=10";
-  const CHECKOUT_QUIET = "https://pay.hotmart.com/V108359116M";
+  const CHECKOUT_QUIET = "https://pay.hotmart.com/V108359116M?off=q94p915h&checkoutMode=10";
+  const CHECKOUT_SET = "https://pay.hotmart.com/J108359210Q";
   const CONTACT_EMAIL = "oregonbackroadsguides@gmail.com";
 </script>
 <style>
@@ -69,6 +70,14 @@ h2{font-size:44px;margin-bottom:14px}
 .book .price{margin-bottom:12px}.book .price b{font-size:36px}
 .book .btn{font-size:20px;padding:13px 22px}
 .book .more{display:block;margin-top:10px;font-size:17px}
+.setbox{background:var(--fir);color:var(--cream);border-radius:12px;margin-top:26px;padding:26px 30px;display:grid;grid-template-columns:260px 1fr;gap:30px;align-items:center}
+.setbox img{width:260px;border-radius:8px}
+.setbox h3{color:#FBF4E4;font-size:34px;margin:4px 0 8px}
+.setbox p{margin:0 0 14px;font-size:19px;color:#EFE6D2}
+.setbox .price b{color:#FBF4E4}.setbox .price span{color:#D9CDB3}
+.setbox .kick{color:var(--ochre)}
+.btn.gold{background:var(--ochre);color:#21180F;box-shadow:0 3px 0 #8a5d17}
+@media (max-width:860px){.setbox{grid-template-columns:1fr}.setbox img{width:100%}}
 .band{background:var(--fir2);color:var(--cream);padding:18px 0;text-align:center;font-family:"Zilla Slab",serif;font-size:22px}
 .band .kick{color:var(--ochre)}
 .part{font-family:"Zilla Slab",serif;font-weight:700;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream)}
@@ -190,6 +199,16 @@ footer a{color:var(--cream)}
       </div>
     </div>
   </div>
+  <div class="setbox">
+    <img src="img/complete-set.png" alt="The Complete Set: all three Oregon Back Roads Guides">
+    <div>
+      <div class="kick">Best value · all three guides</div>
+      <h3>The Complete Set</h3>
+      <p>The Kitchen, Road Trip and Quiet Life guides in one download. Save $15 compared with buying them one by one.</p>
+      <div class="price"><b>$29.99</b><span>instead of $44.97 · one-time payment</span></div>
+      <a class="btn gold buy-set" href="#">Get all three guides</a>
+    </div>
+  </div>
   <ul class="trust"><li>Instant PDF download</li><li>Large print</li><li>One-time payment</li><li>7-day money-back guarantee</li></ul>
 </div></div>
 
@@ -305,13 +324,19 @@ footer a{color:var(--cream)}
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <div class="kick">Coming soon</div>
-  <h2>The Complete Set</h2>
-  <div class="next" style="margin-top:22px">
-    <div class="box"><span class="tag">Coming soon</span><h3>All three guides together</h3><p>The Kitchen, Road Trip and Quiet Life guides in one purchase, for less than buying them one by one.</p></div>
-    <div class="box"><span class="tag">Stay in touch</span><h3>New stories every week</h3><p>Follow Oregon Back Roads on YouTube for new Oregon stories, and to hear when the Complete Set is ready.</p></div>
+<section id="set"><div class="wrap">
+  <div class="kick">Best value</div>
+  <h2>Get all three and save $15</h2>
+  <div class="setbox">
+    <img src="img/complete-set.png" alt="The Complete Set">
+    <div>
+      <h3>The Complete Set</h3>
+      <p>194 large-print pages: 30 recipes, 12 road trips with 37 places to eat, and 18 towns compared. One payment, three PDFs, instant download.</p>
+      <div class="price"><b>$29.99</b><span>instead of $44.97</span></div>
+      <a class="btn gold buy-set" href="#">Get the Complete Set</a>
+    </div>
   </div>
+  <p class="fine" style="margin-top:16px">Already bought one guide? You can still buy the other two separately at $14.99 each.</p>
 </div></section>
 
 <section class="alt" id="faq"><div class="wrap" style="max-width:860px">
@@ -324,12 +349,13 @@ footer a{color:var(--cream)}
   <details><summary>I don't live in Oregon. Will the recipes work?</summary><p>Yes. Every recipe uses ingredients from a regular grocery store, and anything that's hard to find outside Oregon (marionberries, Dungeness crab, chanterelles) comes with a swap.</p></details>
   <details><summary>Are the restaurants in the Road Trip Guide still open?</summary><p>Every place was confirmed open in November 2026 by two independent sources, and each one shows that date. Small-town places change hours with the seasons and sometimes close, so the guide tells you to call ahead. If you find one that has closed, write to us and we'll fix it in the next update.</p></details>
   <details><summary>Is this a printed book?</summary><p>No, it's a digital PDF. You're welcome to print it for your own use.</p></details>
+  <details><summary>What's in the Complete Set?</summary><p>All three guides as three separate PDF files: The Oregon Kitchen Guide, The Oregon Road Trip Guide and The Oregon Quiet Life Guide, for $29.99 instead of $44.97.</p></details>
   <details><summary>What if it's not for me?</summary><p>You have 7 days to ask for a full refund through Hotmart, no questions asked.</p></details>
 </div></section>
 
 <section class="final"><div class="wrap">
   <h2>Bring a little Oregon home tonight</h2>
-  <p class="lead" style="margin:10px auto 30px">Instant download · $14.99 each</p>
+  <p class="lead" style="margin:10px auto 30px">Instant download · $14.99 each, or <a class="buy-set" href="#">all three for $29.99</a></p>
   <div class="shelf" style="max-width:1100px;margin:0 auto;text-align:center">
     <div><img src="img/kitchen-guide-cover.png" alt="The Oregon Kitchen Guide" style="max-height:300px"><a class="btn buy" href="#">Get the Kitchen Guide</a></div>
     <div><img src="img/road-trip-guide-cover.png" alt="The Oregon Road Trip Guide" style="max-height:300px"><a class="btn buy-rt" href="#">Get the Road Trip Guide</a></div>
@@ -347,6 +373,7 @@ footer a{color:var(--cream)}
   document.querySelectorAll("a.buy").forEach(a => { a.href = CHECKOUT_KITCHEN; });
   document.querySelectorAll("a.buy-rt").forEach(a => { a.href = CHECKOUT_ROADTRIP; });
   document.querySelectorAll("a.buy-ql").forEach(a => { a.href = CHECKOUT_QUIET; });
+  document.querySelectorAll("a.buy-set").forEach(a => { a.href = CHECKOUT_SET; });
   document.querySelectorAll("a.mail").forEach(a => { a.href = "mailto:" + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
 </script>
 </body>
