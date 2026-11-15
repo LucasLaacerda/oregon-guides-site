@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oregon Back Roads Guides · Large-print guides to the drives, the diners and the old recipes</title>
-<meta name="description" content="Large-print PDF guides from the Oregon Back Roads channel: 12 drives with 37 places to eat, 30 Oregon recipes (5 from lost Portland restaurants) and 18 small towns compared. All three for the price of two.">
+<meta name="description" content="Large-print PDF guides from the Oregon Back Roads channel: 12 drives with 37 places to eat, 30 Oregon recipes (including 5 lost Portland dishes) and 18 small towns compared. All three for the price of two.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oregonbackroadsguides.netlify.app/">
 <meta property="og:title" content="Oregon Back Roads Guides">
@@ -46,6 +46,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif
 img{max-width:100%;height:auto;display:block}
 a{color:var(--rust)}
 a:focus-visible,summary:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+.mail{overflow-wrap:anywhere;word-break:break-word} /* the long address must wrap on 320 px phones */
 h1,h2,h3{font-family:"Zilla Slab",Georgia,serif;color:var(--fir);line-height:1.1;margin:0}
 h2{font-size:32px;margin-bottom:12px}
 h3{font-size:22px}
@@ -88,7 +89,7 @@ section{padding:44px 0}
 .price{margin:4px 0 0;font-family:"Zilla Slab",serif;line-height:1.05}
 .price b{font-size:36px;color:#FBF4E4}
 .price s{font-size:16px;font-weight:500;color:#D9CDB3;margin-left:4px}
-.math{margin:6px 0 0;font-size:15px;line-height:1.35;color:#E8DEC8}
+.math{margin:6px 0 0;font-size:16.5px;line-height:1.35;color:#E8DEC8}
 .fan{position:relative;flex:none;width:150px;height:128px}
 .fan img{position:absolute;top:14px;width:74px;border-radius:2px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
 .fan img:nth-child(1){left:0;transform:rotate(-9deg)}
@@ -228,7 +229,7 @@ footer a{color:var(--cream)}
     <h1>Large-print guides to the Oregon you love</h1>
     <ul class="checks">
       <li>12 drives with 37 places to eat</li>
-      <li>30 recipes, 5 from lost Portland restaurants</li>
+      <li>30 recipes, including 5 lost Portland dishes</li>
       <li>18 small towns compared</li>
     </ul>
   </div>
@@ -384,10 +385,10 @@ footer a{color:var(--cream)}
   <div class="features">
     <div class="feat"><h3>Large print</h3><p>14-point type and plenty of space, so you can read it without hunting for your glasses.</p></div>
     <div class="feat"><h3>Facts you can check</h3><p>Every date, name, price and opening was checked, and the sources are listed at the back of each guide.</p></div>
-    <div class="feat"><h3>Print what you need</h3><p>Read it on a tablet or computer, or print a page for the counter or the glove box. Printable checklists included.</p></div>
+    <div class="feat"><h3>Print what you need</h3><p>Read it on a tablet or computer, or print a page for the counter or the glove box. The Kitchen Guide includes a printable shopping list, and the Road Trip Guide a printable checklist.</p></div>
     <div class="feat"><h3>Cups, spoons and °F</h3><p>American measures throughout, with a conversion page at the back of the Kitchen Guide.</p></div>
     <div class="feat"><h3>Safety built in</h3><p>Safe internal temperatures from FoodSafety.gov, and plain warnings for hot oil, hot sugar and wild mushrooms.</p></div>
-    <div class="feat"><h3>Dated and sourced</h3><p>Places to eat show the date we confirmed them, and town numbers show their source and month.</p></div>
+    <div class="feat"><h3>Dated and sourced</h3><p>Every place to eat shows the date we confirmed it, and every town number is dated and sourced.</p></div>
   </div>
 </div></section>
 
@@ -447,12 +448,13 @@ footer a{color:var(--cream)}
   // "?v=12" (video QR) or "?v=12d" (video description) -> "v12" / "v12d"; anything else -> "site"
   function videoCode(search) {
     const v = new URLSearchParams(search).get("v");
-    return v && /^[a-z0-9-]{1,12}$/.test(v) ? "v" + v : "site";
+    return v && /^[a-z0-9]{1,12}$/.test(v) ? "v" + v : "site";
   }
-  // Hotmart's sales-origin dashboard shows sck: <video code>-<button position>-<offer>
+  // Hotmart's sales-origin dashboard shows sck: <video code>|<button position>|<offer>
+  // (Hotmart rules: at most 30 characters, no "_", "|" as separator; the longest here is exactly 30)
   function checkoutHref(offer, pos, code) {
     const base = CHECKOUT[offer];
-    return base + (base.includes("?") ? "&" : "?") + "sck=" + code + "-" + pos + "-" + offer;
+    return base + (base.includes("?") ? "&" : "?") + "sck=" + code + "|" + pos + "|" + offer;
   }
   // Analytics must never break buying: links are set first, and a blocked or broken Clarity is ignored.
   function track(...args) {
