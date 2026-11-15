@@ -21,6 +21,14 @@
   };
   const CONTACT_EMAIL = "oregonbackroadsguides@gmail.com";
 </script>
+<script>
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  if (location.hostname !== "oregonbackroadsguides.netlify.app") return; // tests/previews: queue only
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "ze44reyy2e");
+</script>
 <style>
 :root{--fir:#213A2C;--fir2:#2F5240;--bark:#5B3F2A;--rust:#A44B25;--ochre:#C98C2E;--gold-on-dark:#E8B65C;--cream:#F6EFDF;--paper:#FBF7EE;--ink:#2A2420;--muted:#5E5144;--line:#E2D6C1}
 *{box-sizing:border-box}
@@ -427,7 +435,34 @@ footer a{color:var(--cream)}
 </div></footer>
 
 <script>
+  // "?v=12" (video QR) or "?v=12d" (video description) -> "v12" / "v12d"; anything else -> "site"
+  function videoCode(search) {
+    const v = new URLSearchParams(search).get("v");
+    return v && /^[a-z0-9-]{1,12}$/.test(v) ? "v" + v : "site";
+  }
+  // Hotmart's sales-origin dashboard shows sck: <video code>-<button position>-<offer>
+  function checkoutHref(offer, pos, code) {
+    const base = CHECKOUT[offer];
+    return base + (base.includes("?") ? "&" : "?") + "sck=" + code + "-" + pos + "-" + offer;
+  }
+  // Analytics must never break buying: links are set first, and a blocked or broken Clarity is ignored.
+  function track(...args) {
+    try { if (typeof window.clarity === "function") window.clarity(...args); } catch (e) {}
+  }
+
+  const CODE = videoCode(location.search);
+  document.querySelectorAll("a[data-offer]").forEach(a => { a.href = checkoutHref(a.dataset.offer, a.dataset.pos, CODE); });
   document.querySelectorAll("a.mail").forEach(a => { a.href = "mailto:" + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
+  track("set", "video", CODE);
+  document.addEventListener("click", e => {
+    const buy = e.target.closest("a[data-offer]");
+    if (buy) { track("event", "buy"); track("event", "buy-" + buy.dataset.offer + "-" + buy.dataset.pos); }
+    const tracked = e.target.closest("[data-track]");
+    if (tracked) track("event", tracked.dataset.track);
+  });
+  document.querySelectorAll("details[data-faq]").forEach(d => {
+    d.addEventListener("toggle", () => { if (d.open) track("event", "faq-" + d.dataset.faq); });
+  });
 </script>
 </body>
 </html>
