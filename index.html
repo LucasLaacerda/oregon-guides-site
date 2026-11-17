@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oregon Back Roads Guides · Large-print guides to the drives, the diners and the old recipes</title>
-<meta name="description" content="Large-print PDF guides from the Oregon Back Roads channel: 12 drives with 37 places to eat, 30 Oregon recipes (including 5 lost Portland dishes) and 18 small towns compared. All three for the price of two.">
+<title>Free: 5 recipes from Oregon restaurants we still miss · Oregon Back Roads</title>
+<meta name="description" content="Get 5 large-print recipes from Oregon restaurants that are gone, free, with the stories behind them: Henry Thiele's German pancake, Yaw's burger, Farrell's hot fudge sundae and more. From the Oregon Back Roads channel.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oregonbackroadsguides.netlify.app/">
-<meta property="og:title" content="Oregon Back Roads Guides">
-<meta property="og:description" content="Large-print guides from the Oregon Back Roads channel: 12 drives with 37 places to eat, 30 recipes and 18 small towns compared. All three for the price of two.">
+<meta property="og:title" content="Free: 5 recipes from Oregon restaurants we still miss">
+<meta property="og:description" content="Henry Thiele's German pancake, Yaw's burger with fries and gravy, Farrell's hot fudge sundae and more, in large print, with the stories behind them.">
 <meta property="og:image" content="https://oregonbackroadsguides.netlify.app/img/opt/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,15 +20,18 @@
 <script>
   /* ============================================================
      HOTMART CHECKOUT LINKS. Change them here only;
-     every buy button on the page uses these.
+     every buy button on this page and on thanks.html uses these.
      ============================================================ */
   const CHECKOUT = {
-    set: "https://pay.hotmart.com/J108359210Q",
+    cookbook: "https://pay.hotmart.com/COOKBOOK_LINK_HERE",
+    cookbook12: "https://pay.hotmart.com/COOKBOOK_LINK_HERE?off=READER_OFFER_HERE",
     kitchen: "https://pay.hotmart.com/N108356715G?checkoutMode=10",
-    roadtrip: "https://pay.hotmart.com/P108357485K?off=otqruphe&checkoutMode=10",
-    quiet: "https://pay.hotmart.com/V108359116M?off=q94p915h&checkoutMode=10"
+    roadtrip: "https://pay.hotmart.com/P108357485K?off=otqruphe&checkoutMode=10"
   };
   const CONTACT_EMAIL = "oregonbackroadsguides@gmail.com";
+  /* MailerLite form "Lost Restaurants - Free Sample" (reCAPTCHA and double opt-in off) */
+  const SIGNUP_URL = "https://assets.mailerlite.com/jsonp/2802022/forms/204346467974907609/subscribe";
+  const PROD_HOST = "oregonbackroadsguides.netlify.app";
 </script>
 <script>
 (function(c,l,a,r,i,t,y){
@@ -46,7 +49,7 @@ html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.55}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--rust)}
-a:focus-visible,summary:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
 .mail{overflow-wrap:anywhere;word-break:break-word} /* the long address must wrap on 320 px phones */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap} /* screen readers only */
 /* flex layouts space items with margins, not gap: iOS before 14.5 (old iPads) ignores flex gap */
@@ -64,7 +67,7 @@ section{padding:44px 0}
 .guide{border-top:6px solid var(--bark)}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 22px;border:0;border-radius:8px;background:var(--rust);color:#fff;font-family:"Zilla Slab",serif;font-weight:700;font-size:20px;line-height:1.15;text-align:center;text-decoration:none;box-shadow:0 3px 0 #6f2f15}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 22px;border:0;border-radius:8px;background:var(--rust);color:#fff;font-family:"Zilla Slab",serif;font-weight:700;font-size:20px;line-height:1.15;text-align:center;text-decoration:none;box-shadow:0 3px 0 #6f2f15;cursor:pointer}
 .btn.gold{background:var(--ochre);color:#21180F;box-shadow:0 3px 0 #8a5d17}
 .btn.ghost{background:#fff;color:var(--fir);border:2px solid var(--fir);box-shadow:none}
 .btn.block{display:flex;width:100%}
@@ -77,47 +80,30 @@ section{padding:44px 0}
 .top .btn{min-height:48px;padding:8px 14px;font-size:17px;white-space:nowrap;flex:none}
 
 /* hero */
-.hero{background:var(--cream);border-bottom:6px solid var(--bark);padding:18px 0 24px}
+.hero{background:var(--cream);border-bottom:6px solid var(--bark);padding:16px 0 22px}
 .hero .wrap{display:grid}
 .yt{display:inline-flex;align-items:center;margin:0 0 10px;padding:4px 12px 4px 6px;border:1px solid var(--line);border-radius:18px;background:#fff;font-family:"Zilla Slab",serif;font-weight:600;font-size:clamp(14px,4.15vw,16px);white-space:nowrap;line-height:1.3;color:var(--bark)}
 .play{position:relative;flex:none;width:24px;height:17px;margin-right:8px;border-radius:4px;background:#D9302A}
 .play:after{content:"";position:absolute;left:9px;top:4.5px;border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent} /* drawn, not "▶": iPhones may show that as a blue emoji */
-.hero h1{font-size:clamp(27px,8.2vw,32px);line-height:1.08;margin:0 0 10px} /* two lines from 360 to 390 px wide */
-.checks{list-style:none;margin:0 0 16px;padding:0;font-size:17.5px;line-height:1.4}
+.hero h1{font-size:clamp(26px,7.6vw,31px);line-height:1.08;margin:0 0 10px}
+.checks{list-style:none;margin:0 0 14px;padding:0;font-size:17px;line-height:1.35}
 .checks li{position:relative;padding-left:24px;margin:3px 0}
 .checks li:before{content:"✓";position:absolute;left:0;color:var(--fir2);font-weight:700}
-.offer{background:var(--fir);color:var(--cream);border-radius:12px;padding:16px 16px 4px}
-.offer-row{display:flex;align-items:center;margin-bottom:14px}
-.offer-row .fan{margin-right:12px}
-.offer .kick,.setbox .kick{color:var(--gold-on-dark)}
-.offer .kick{font-size:14px;letter-spacing:.05em;margin:0}
-.price{margin:4px 0 0;font-family:"Zilla Slab",serif;line-height:1.05}
-.price b{font-size:36px;color:#FBF4E4}
-.price s{font-size:16px;font-weight:500;color:#D9CDB3;margin-left:4px}
-.math{margin:6px 0 0;font-size:16.5px;line-height:1.35;color:#E8DEC8}
-.fan{position:relative;flex:none;width:150px;height:128px}
-.fan img{position:absolute;top:14px;width:74px;border-radius:2px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
-.fan img:nth-child(1){left:0;transform:rotate(-9deg)}
-.fan img:nth-child(2){left:74px;transform:rotate(9deg)}
-.fan img:nth-child(3){left:35px;top:2px;width:80px;z-index:2}
-/* Netlify's free plan pins a badge over the bottom-right corner: on the first phone screen only the
-   trust list (short, left-aligned lines) may reach that corner; the singles link sits inside the offer box. */
+.offer{background:var(--fir);color:var(--cream);border-radius:12px;padding:14px 14px 12px}
+.offer-row{display:flex;align-items:center;margin-bottom:12px}
+.offer-row img{width:64px;flex:none;margin-right:12px;border-radius:2px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+.offer .kick{color:var(--gold-on-dark);font-size:14px;letter-spacing:.05em;margin:0}
+.offer-row p{margin:2px 0 0;font-size:17px;line-height:1.3;color:#F2EADA}
+.offer label{display:block;font-family:"Zilla Slab",serif;font-weight:600;font-size:17px;margin:0 0 4px}
+.offer input[type=email]{display:block;width:100%;min-height:52px;padding:10px 12px;border:2px solid #C9BB9C;border-radius:8px;background:#fff;color:var(--ink);font:400 19px "Source Serif 4",Georgia,serif;margin:0 0 10px}
+.offer .err{display:none;margin:-4px 0 10px;font-size:17px;color:#FFD9A8}
+.offer.bad .err{display:block}
+.offer.bad input[type=email]{border-color:#E8B65C}
+.offer .fine{color:#D9CDB3;margin:10px 0 0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden} /* honeypot: people never see it, bots fill it */
 .trust{list-style:none;margin:12px 0 0;padding:0;font-size:17px;color:var(--bark)}
 .trust li{margin:4px 0}
 .trust li:before{content:"✓ ";color:var(--fir2);font-weight:700}
-.more{display:block;padding:12px 0;font-size:17px;text-align:center;color:#F6EFDF}
-
-/* pick one */
-.single{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
-.single:first-child{border-top:0}
-.single>img{width:84px;box-shadow:0 3px 8px rgba(40,30,20,.3)}
-.q{font-family:"Zilla Slab",serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);margin:0 0 2px}
-.single h3{margin:0 0 6px}
-.single p{font-size:17px;line-height:1.45;margin:0 0 10px}
-.buy{display:flex;flex-wrap:wrap;align-items:center}
-.buy b{margin-right:14px;font-family:"Zilla Slab",serif;font-size:24px;color:var(--fir)}
-.buy .btn{margin:4px 0}
-.see{display:inline-block;padding:12px 0;font-size:16px}
 
 /* how it works */
 .steps{counter-reset:s;list-style:none;margin:8px 0 18px;padding:0;max-width:780px}
@@ -137,6 +123,9 @@ section{padding:44px 0}
 .samples img{border:1px solid #ddd0b8;box-shadow:0 6px 18px rgba(40,30,20,.15)}
 .samples figcaption{font-size:16px;color:var(--muted);margin-top:8px;text-align:center}
 .cta{margin:26px 0 10px;text-align:center}
+.price{margin:0 0 10px;font-family:"Zilla Slab",serif;font-size:34px;font-weight:700;color:var(--fir)}
+.bookhead{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;margin:0 0 8px}
+.bookhead img{box-shadow:0 4px 12px rgba(40,30,20,.3)}
 .lostbox{background:var(--fir);color:var(--cream);border-radius:12px;padding:20px 18px;margin:0 0 26px}
 .lostbox .kick{color:var(--gold-on-dark)}
 .lostbox h3{color:#FBF4E4;font-size:28px;margin:2px 0 6px}
@@ -149,12 +138,6 @@ section{padding:44px 0}
 .features{display:grid;gap:18px;margin-top:18px}
 .feat h3{margin-bottom:4px}
 .feat p{font-size:17px;margin:0}
-
-/* set */
-.setbox{background:var(--fir);color:var(--cream);border-radius:12px;padding:24px 18px;display:grid;gap:16px;justify-items:center;text-align:center}
-.setbox h2{color:#FBF4E4}
-.setbox p{color:#EFE6D2}
-.setbox .math{margin:6px 0 16px}
 
 /* faq */
 .faq{max-width:860px}
@@ -174,28 +157,23 @@ footer{background:var(--fir);color:#D9CDB3;font-size:16px;padding:28px 0 72px}
 footer a{color:var(--cream)}
 
 @media (max-width:389px){
-  .hero{padding-top:14px}
-  .offer-row{margin-bottom:10px}
-  /* smaller fan so "Two guides: $29.98" stays on one line next to it (iPhone SE/mini are 375 px wide) */
-  .fan{width:128px;height:112px}
-  .fan img{width:64px;top:12px}
-  .fan img:nth-child(2){left:64px}
-  .fan img:nth-child(3){left:30px;width:68px}
+  /* small phones: keep the sign-up button above the Netlify badge on the first screen */
+  .hero .yt{margin-bottom:8px}
+  .hero h1{font-size:25px;margin-bottom:8px}
+  .checks{margin-bottom:10px}
+  .offer-row{margin-bottom:8px}
+  .offer-row p{display:none}
+  .offer-row img{width:48px}
 }
 @media (max-width:359px){
   .brand span{display:none}
   .hero{padding-top:10px}
   .yt{white-space:normal;margin-bottom:8px}
-  .offer-row .fan{display:none} /* no room beside the price here; the covers follow right below */
-  .hero h1{font-size:25px}
-  .checks{font-size:16.5px;margin-bottom:10px}
+  .hero h1{font-size:23px}
+  .checks{font-size:16.5px;margin-bottom:8px}
+  .offer-row img{display:none}
+  .offer .btn{font-size:19px;padding:12px 10px}
   .trust{font-size:16px}
-  .offer{padding:14px 14px 4px}
-  .fan{width:112px;height:100px}
-  .fan img{width:56px;top:12px}
-  .fan img:nth-child(2){left:56px}
-  .fan img:nth-child(3){left:27px;width:60px}
-  .price b{font-size:32px}
 }
 @media (min-width:860px){
   body{font-size:20px}
@@ -208,32 +186,20 @@ footer a{color:var(--cream)}
   .hero{padding:40px 0 48px}
   .hero .wrap{grid-template-columns:1.1fr .9fr;grid-template-areas:"copy offer" "trust offer";column-gap:48px;align-items:start}
   .hero-copy{grid-area:copy}
-  .offer{grid-area:offer;padding:26px 26px 12px}
+  .offer{grid-area:offer;padding:26px}
+  .offer-row img{width:110px;margin-right:18px}
+  .offer-row p{font-size:19px}
   .trust{grid-area:trust;display:flex;flex-wrap:wrap;font-size:18px}
   .trust li{margin:0 18px 4px 0}
-  .hero h1{font-size:clamp(40px,4.6vw,56px);margin-bottom:16px}
+  .hero h1{font-size:clamp(40px,4.4vw,54px);margin-bottom:16px}
   .checks{font-size:21px}
-  .offer .kick{font-size:15px}
-  .fan{width:260px;height:220px}
-  .fan img{width:128px;top:22px}
-  .fan img:nth-child(2){left:128px}
-  .fan img:nth-child(3){left:61px;top:2px;width:138px}
-  .price b{font-size:46px}
-  .price s{font-size:20px}
-  .math{font-size:17px}
-  .singles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .single{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--paper)}
-  .single:first-child{border-top:1px solid var(--line)}
-  .single>img{width:150px;height:194px;object-fit:contain;margin:0 auto 12px}
-  .single>div{flex:1;display:flex;flex-direction:column;align-items:flex-start}
-  .single .buy{margin-top:auto}
+  .bookhead{grid-template-columns:150px 1fr;gap:28px}
   .cards{grid-template-columns:repeat(3,1fr);gap:18px}
   .swipe{display:none}
   .samples{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0;gap:22px}
   .lostbox{padding:28px 30px}
   .lostbox ul{grid-template-columns:repeat(3,1fr)}
   .features{grid-template-columns:repeat(3,1fr);gap:26px 34px}
-  .setbox{grid-template-columns:300px 1fr;justify-items:start;text-align:left;padding:34px 38px;gap:38px;align-items:center}
   .final-singles{grid-template-columns:repeat(3,1fr);max-width:820px}
 }
 </style>
@@ -242,87 +208,102 @@ footer a{color:var(--cream)}
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#top"><img src="img/opt/logo-96.png" width="96" height="96" alt="Oregon Back Roads logo"><span>Oregon Back Roads Guides</span></a>
-  <a class="btn gold" href="#" data-offer="set" data-pos="header">All 3 · $29.99</a>
+  <a class="btn gold" href="#free" data-track="header-free">Free recipes</a>
 </div></header>
 
 <section class="hero" id="top"><div class="wrap">
   <div class="hero-copy">
     <p class="yt"><span class="play" aria-hidden="true"></span>From the Oregon Back Roads channel</p>
-    <h1>Large-print guides to the Oregon you love</h1>
+    <h1>Free: 5 recipes from Oregon restaurants we still miss</h1>
     <ul class="checks">
-      <li>12 drives with 37 places to eat</li>
-      <li>30 recipes, including 5 lost Portland dishes</li>
-      <li>18 small towns compared</li>
+      <li>Henry Thiele's German pancake</li>
+      <li>Yaw's burger with fries and gravy</li>
+      <li>Farrell's hot fudge sundae, and 2 more</li>
     </ul>
   </div>
-  <div class="offer">
+  <form class="offer" id="free" novalidate>
     <div class="offer-row">
-      <div class="fan" role="img" aria-label="Covers of the three guides">
-        <img src="img/opt/cover-kitchen.jpg" width="360" height="450" alt="">
-        <img src="img/opt/cover-quiet.jpg" width="360" height="466" alt="">
-        <img src="img/opt/cover-roadtrip.jpg" width="360" height="466" alt="">
-      </div>
+      <img src="img/opt/cover-sample.jpg" width="360" height="466" alt="Cover of the free sample">
       <div>
-        <p class="kick">All three for the price of two</p>
-        <p class="price"><b>$29.99</b> <s><span class="sr">Regular price: </span>$44.97</s></p>
-        <p class="math">Two guides: $29.98<br>All three: $29.99</p>
+        <p class="kick">Free large-print PDF</p>
+        <p>The stories behind each place, and recipes you can make at home</p>
       </div>
     </div>
-    <a class="btn gold block" href="#" data-offer="set" data-pos="hero">Get all three guides</a>
-    <a class="more" href="#guides" data-track="see-singles">Or buy just one, $14.99 ↓</a>
-  </div>
-  <ul class="trust"><li>Instant PDF</li><li>Card or PayPal</li><li>7-day money-back</li></ul>
+    <label for="email">Your email</label>
+    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+    <p class="err" id="email-err" role="alert">Please check your email address.</p>
+    <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <button class="btn gold block" type="submit" data-hero-cta>Send me the free recipes</button>
+    <p class="fine">No credit card. We'll send an Oregon story now and then; unsubscribe anytime.</p>
+  </form>
+  <ul class="trust"><li>Free PDF</li><li>Large print</li><li>No credit card</li></ul>
 </div></section>
 
-<section id="guides" class="alt"><div class="wrap">
-  <h2>Or pick just one</h2>
-  <p class="lead">$14.99 each. Same large print, same instant download.</p>
-  <div class="singles">
-    <article class="single">
-      <img src="img/opt/cover-roadtrip.jpg" width="360" height="466" alt="Cover of The Oregon Road Trip Guide" loading="lazy">
-      <div>
-        <p class="q">Love a good drive?</p>
-        <h3>The Oregon Road Trip Guide</h3>
-        <p>12 drives planned by season, with 37 classic places to eat, each one confirmed open in November 2026.</p>
-        <p class="buy"><b>$14.99</b><a class="btn" href="#" data-offer="roadtrip" data-pos="list">Get the Road Trip Guide</a></p>
-        <a class="see" href="#roadtrip">See the 12 drives ↓</a>
-      </div>
-    </article>
-    <article class="single">
-      <img src="img/opt/cover-kitchen.jpg" width="360" height="450" alt="Cover of The Oregon Kitchen Guide" loading="lazy">
-      <div>
-        <p class="q">Miss the old places?</p>
-        <h3>The Oregon Kitchen Guide</h3>
-        <p>30 home recipes, from marionberry pie and Dungeness crab cakes to jojos, including 5 dishes from Portland restaurants that are long gone.</p>
-        <p class="buy"><b>$14.99</b><a class="btn" href="#" data-offer="kitchen" data-pos="list">Get the Kitchen Guide</a></p>
-        <a class="see" href="#kitchen">See the recipes ↓</a>
-      </div>
-    </article>
-    <article class="single">
-      <img src="img/opt/cover-quiet.jpg" width="360" height="466" alt="Cover of The Oregon Quiet Life Guide" loading="lazy">
-      <div>
-        <p class="q">Dreaming of a quieter town?</p>
-        <h3>The Oregon Quiet Life Guide</h3>
-        <p>18 small Oregon towns compared: home values, rent, climate, the nearest ER, and the honest pros and cons.</p>
-        <p class="buy"><b>$14.99</b><a class="btn" href="#" data-offer="quiet" data-pos="list">Get the Quiet Life Guide</a></p>
-        <a class="see" href="#quietlife">See the towns ↓</a>
-      </div>
-    </article>
+<section id="cookbook" class="alt guide"><div class="wrap">
+  <div class="bookhead">
+    <img src="img/opt/cover-cookbook.jpg" width="360" height="466" alt="Cover of The Lost Oregon Restaurants Cookbook" loading="lazy">
+    <div>
+      <p class="kick">The complete book · 76 pages</p>
+      <h2>The Lost Oregon Restaurants Cookbook</h2>
+    </div>
   </div>
+  <p class="lead">The free sample has five places. The complete book has eighteen, from Portland's Organ Grinder and Quality Pie to the Pixie Kitchen in Lincoln City and the Hi-Ho in Roseburg. Every place comes with its true story and a recipe you can make in an ordinary kitchen: 23 recipes in all.</p>
+  <div class="cards">
+    <div class="card"><p class="kick">Chapter 1</p><h3>Drive-In Days</h3><p>Yaw's Top Notch · Waddle's at Jantzen Beach · Hollywood Burger Bar</p></div>
+    <div class="card"><p class="kick">Chapter 2</p><h3>Sunday Dinner Out</h3><p>Henry Thiele's · Der Rheinlander · The River Queen</p></div>
+    <div class="card"><p class="kick">Chapter 3</p><h3>Coffee Shops, Diners &amp; Pie</h3><p>Quality Pie · VIP's · Hi-Ho, Roseburg · Shari's</p></div>
+    <div class="card"><p class="kick">Chapter 4</p><h3>Parlors, Pizza &amp; Tacos</h3><p>Farrell's · The Organ Grinder · The Original Taco House · Macheezmo Mouse</p></div>
+    <div class="card"><p class="kick">Chapter 5</p><h3>Across the State</h3><p>The Pixie Kitchen · The Crab Broiler · The Homefried Truckstop, Eugene · Geppetto's, Ashland</p></div>
+    <div class="card"><p class="kick">Plus</p><h3>Pages for your memories</h3><p>Every place has room to write who you went with and what you ordered, so the book becomes a family keepsake. Every source we used is listed at the back.</p></div>
+  </div>
+  <p class="swipe">Swipe to see more pages →</p>
+  <div class="samples">
+    <figure><img src="img/opt/cb-sample-story.jpg" width="720" height="932" alt="Story page: Henry Thiele's" loading="lazy"><figcaption>The true story of every place</figcaption></figure>
+    <figure><img src="img/opt/cb-sample-recipe.jpg" width="720" height="932" alt="Recipe page: German Pancake" loading="lazy"><figcaption>Large print, numbered steps, grocery-store ingredients</figcaption></figure>
+    <figure><img src="img/opt/cb-sample-toc.jpg" width="720" height="932" alt="Table of contents" loading="lazy"><figcaption>18 places and 23 recipes</figcaption></figure>
+  </div>
+  <div class="cta">
+    <p class="price">$17</p>
+    <a class="btn" href="#" data-offer="cookbook" data-pos="section">Get the complete cookbook</a>
+    <p class="fine" style="margin-top:12px">A thoughtful gift for anyone who grew up in Oregon. Instant PDF, print what you need.</p>
+  </div>
+  <p class="fine center">These are our own recipes, written in the style of each restaurant's famous dishes, not the restaurants' original recipes. Oregon Back Roads has no connection with the restaurants or the owners of their names.</p>
 </div></section>
 
 <section id="how"><div class="wrap">
   <h2>How it works</h2>
   <ol class="steps">
-    <li><b>Tap a button and pay.</b> Card, PayPal or Apple Pay, on Hotmart's secure checkout.</li>
-    <li><b>Check your email.</b> Hotmart, our payment partner, emails you right away. Click the button in that email and create a password.</li>
-    <li><b>Download your guide.</b> It's waiting under “My purchases.” Read it on your phone, tablet or computer, or print it at home.</li>
+    <li><b>Free recipes:</b> type your email above and tap the button. Your download opens right away.</li>
+    <li><b>Buying a book:</b> tap a button and pay with card, PayPal or Apple Pay, on Hotmart's secure checkout.</li>
+    <li><b>Then check your email.</b> Hotmart, our payment partner, emails you right away. Click the button in that email, create a password, and your book is waiting under “My purchases.”</li>
   </ol>
   <p class="fine">No email after a few minutes? Check your spam folder, or write to us at <a class="mail" href="#">oregonbackroadsguides@gmail.com</a>.</p>
 </div></section>
 
-<section id="roadtrip" class="alt guide"><div class="wrap">
-  <p class="kick">The Oregon Road Trip Guide · 60 pages</p>
+<section id="kitchen" class="alt guide"><div class="wrap">
+  <p class="kick">More from the channel · The Oregon Kitchen Guide · 86 pages</p>
+  <h2>The old Oregon recipes, back in your kitchen</h2>
+  <p class="lead">Thirty home recipes in seven chapters, from marionberry pie and Dungeness crab cakes to jojos, written for an ordinary kitchen with grocery-store ingredients. A short story comes with every recipe.</p>
+  <div class="cards">
+    <div class="card"><p class="kick">Chapter 1 · 5 recipes</p><h3>Berry Season</h3><p>Marionberry pie (the official state pie), blackberry cobbler, berry crumb coffee cake, refrigerator jam, berry shortcake.</p></div>
+    <div class="card"><p class="kick">Chapter 2 · 4 recipes</p><h3>Orchard &amp; Valley</h3><p>Pear upside-down cake, pear crisp with hazelnuts, Bing cherry custard bake, pinot noir poached pears.</p></div>
+    <div class="card"><p class="kick">Chapter 3 · 4 recipes</p><h3>Hazelnut Country</h3><p>Hazelnut shortbread, hazelnut brittle, chocolate hazelnut brownies, green beans with hazelnut brown butter.</p></div>
+    <div class="card"><p class="kick">Chapter 4 · 5 recipes</p><h3>Coast &amp; River</h3><p>Roasted salmon with lemon-dill butter, Dungeness crab cakes, clam chowder, fish and chips, smoked salmon spread.</p></div>
+    <div class="card"><p class="kick">Chapter 5 · 3 recipes</p><h3>Cheddar &amp; Chanterelles</h3><p>Baked mac and cheese, cheddar drop biscuits, creamy chanterelles on toast.</p></div>
+    <div class="card"><p class="kick">Chapter 6 &amp; 7 · 9 recipes</p><h3>Diners and Lost Portland</h3><p>Jojos with buttermilk ranch, chicken-fried steak, marionberry milkshake, albacore tuna melt, and five lost Portland dishes.</p></div>
+  </div>
+  <p class="swipe">Swipe to see more pages →</p>
+  <div class="samples">
+    <figure><img src="img/opt/sample-chapter.jpg" width="720" height="932" alt="Chapter opener page: Berry Season" loading="lazy"><figcaption>Every chapter opens with a little Oregon history</figcaption></figure>
+    <figure><img src="img/opt/sample-recipe.jpg" width="720" height="932" alt="Recipe page: Marionberry Pie" loading="lazy"><figcaption>Marionberry Pie, Oregon's official state pie</figcaption></figure>
+    <figure><img src="img/opt/sample-lost-portland.jpg" width="720" height="932" alt="Recipe page: German Pancake in the style of Henry Thiele's" loading="lazy"><figcaption>German Pancake, in the style of Henry Thiele's</figcaption></figure>
+  </div>
+  <p class="cta"><a class="btn" href="#" data-offer="kitchen" data-pos="section">Get the Kitchen Guide · $14.99</a></p>
+  <p class="fine center">Big 14-point type and numbered steps, so you can read it from the counter. Five of its recipes also appear in the Lost Oregon Restaurants Cookbook.</p>
+</div></section>
+
+<section id="roadtrip" class="guide"><div class="wrap">
+  <p class="kick">More from the channel · The Oregon Road Trip Guide · 60 pages</p>
   <h2>Know where to go, and where to stop for lunch</h2>
   <p class="lead">Twelve drives, three for every season. Each trip gives you the route, the distance, the best time to go, the stops worth making and what to check before you leave: permits, fees, road closures and seasonal hours.</p>
   <div class="cards">
@@ -343,158 +324,77 @@ footer a{color:var(--cream)}
   <p class="fine center">Hours and fees change. The guide tells you what to call ahead about, and every place lists the date we confirmed it.</p>
 </div></section>
 
-<section id="kitchen" class="guide"><div class="wrap">
-  <p class="kick">The Oregon Kitchen Guide · 86 pages</p>
-  <h2>The old Oregon recipes, back in your kitchen</h2>
-  <p class="lead">Thirty home recipes in seven chapters, written for an ordinary kitchen with grocery-store ingredients. A short story comes with every recipe.</p>
-  <div class="cards">
-    <div class="card"><p class="kick">Chapter 1 · 5 recipes</p><h3>Berry Season</h3><p>Marionberry pie (the official state pie), blackberry cobbler, berry crumb coffee cake, refrigerator jam, berry shortcake.</p></div>
-    <div class="card"><p class="kick">Chapter 2 · 4 recipes</p><h3>Orchard &amp; Valley</h3><p>Pear upside-down cake, pear crisp with hazelnuts, Bing cherry custard bake, pinot noir poached pears.</p></div>
-    <div class="card"><p class="kick">Chapter 3 · 4 recipes</p><h3>Hazelnut Country</h3><p>Hazelnut shortbread, hazelnut brittle, chocolate hazelnut brownies, green beans with hazelnut brown butter.</p></div>
-    <div class="card"><p class="kick">Chapter 4 · 5 recipes</p><h3>Coast &amp; River</h3><p>Roasted salmon with lemon-dill butter, Dungeness crab cakes, clam chowder, fish and chips, smoked salmon spread.</p></div>
-    <div class="card"><p class="kick">Chapter 5 · 3 recipes</p><h3>Cheddar &amp; Chanterelles</h3><p>Baked mac and cheese, cheddar drop biscuits, creamy chanterelles on toast.</p></div>
-    <div class="card"><p class="kick">Chapter 6 · 4 recipes</p><h3>Diner &amp; Drive-In</h3><p>Jojos with buttermilk ranch, chicken-fried steak with country gravy, marionberry milkshake, albacore tuna melt.</p></div>
-  </div>
-  <div class="lostbox">
-    <p class="kick">Chapter 7 · 5 recipes</p>
-    <h3>Lost Portland Tables</h3>
-    <p>The restaurants are gone. The dishes don't have to be.</p>
-    <ul>
-      <li><b>German Pancake</b>In the style of Henry Thiele's (1932–1990)</li>
-      <li><b>Hot Cheese Fondue</b>In the spirit of Der Rheinlander on Sandy Boulevard</li>
-      <li><b>Hamburger Steak with Rarebit Sauce</b>In the style of Waddle's at Jantzen Beach</li>
-      <li><b>Hot Fudge Birthday Sundae</b>In the spirit of Farrell's Ice Cream Parlour</li>
-      <li><b>Drive-In Cheeseburger</b>In the style of Yaw's Top Notch</li>
-    </ul>
-    <p class="fine">These are our own recipes, written to bring back the dishes these places were known for. They are not the restaurants' recipes, and Oregon Back Roads has no connection with the restaurants or the owners of their names.</p>
-  </div>
-  <p class="plus"><b>Plus the useful pages:</b> safe cooking temperatures, ingredient swaps, kitchen conversions, a printable shopping list, and every source we used.</p>
-  <p class="swipe">Swipe to see more pages →</p>
-  <div class="samples">
-    <figure><img src="img/opt/sample-chapter.jpg" width="720" height="932" alt="Chapter opener page: Berry Season" loading="lazy"><figcaption>Every chapter opens with a little Oregon history</figcaption></figure>
-    <figure><img src="img/opt/sample-recipe.jpg" width="720" height="932" alt="Recipe page: Marionberry Pie" loading="lazy"><figcaption>Marionberry Pie, Oregon's official state pie</figcaption></figure>
-    <figure><img src="img/opt/sample-lost-portland.jpg" width="720" height="932" alt="Recipe page: German Pancake in the style of Henry Thiele's" loading="lazy"><figcaption>German Pancake, in the style of Henry Thiele's</figcaption></figure>
-  </div>
-  <p class="cta"><a class="btn" href="#" data-offer="kitchen" data-pos="section">Get the Kitchen Guide · $14.99</a></p>
-  <p class="fine center">Big 14-point type and numbered steps, so you can read it from the counter.</p>
-</div></section>
-
-<section id="quietlife" class="alt guide"><div class="wrap">
-  <p class="kick">The Oregon Quiet Life Guide · 48 pages</p>
-  <h2>Thinking about a quieter town?</h2>
-  <p class="lead">If you've ever wondered what life would cost in Baker City or Brookings, this guide compares 18 small Oregon towns with the same numbers from the same sources: median home value and rent from the U.S. Census, a recent market value with its month, NOAA climate, and the nearest hospital with a 24-hour ER.</p>
-  <div class="cards">
-    <div class="card"><p class="kick">The Coast · 7 towns</p><h3>Mild and wet</h3><p>Astoria · Seaside · Lincoln City · Newport · Florence · Coos Bay · Brookings</p></div>
-    <div class="card"><p class="kick">Valley &amp; South · 4 towns</p><h3>Four seasons</h3><p>Silverton · Roseburg · Ashland · Klamath Falls</p></div>
-    <div class="card"><p class="kick">Gorge &amp; Central · 4 towns</p><h3>Dry and sunny side</h3><p>Hood River · The Dalles · Prineville · Madras</p></div>
-    <div class="card"><p class="kick">Eastern Oregon · 3 towns</p><h3>Most home for the money</h3><p>Pendleton · La Grande · Baker City</p></div>
-    <div class="card"><p class="kick">Oregon basics</p><h3>Before you move</h3><p>How Oregon taxes retirees (Social Security isn't taxed), property tax, Medicare when you move, your first 30 days, and the natural risks.</p></div>
-    <div class="card"><p class="kick">Plus</p><h3>Tools to decide</h3><p>A table comparing all 18 towns, a 12-week moving plan, a town visit scorecard and a monthly budget worksheet.</p></div>
-  </div>
-  <p class="swipe">Swipe to see more pages →</p>
-  <div class="samples">
-    <figure><img src="img/opt/ql-sample-town.jpg" width="680" height="880" alt="Town page: Astoria" loading="lazy"><figcaption>One page per town, with the good and the harder parts</figcaption></figure>
-    <figure><img src="img/opt/ql-sample-basics.jpg" width="680" height="880" alt="Oregon basics: taxes" loading="lazy"><figcaption>Oregon basics: taxes, Medicare, first month, risks</figcaption></figure>
-    <figure><img src="img/opt/ql-sample-compare.jpg" width="680" height="880" alt="All 18 towns compared" loading="lazy"><figcaption>All 18 towns side by side</figcaption></figure>
-  </div>
-  <p class="cta"><a class="btn" href="#" data-offer="quiet" data-pos="section">Get the Quiet Life Guide · $14.99</a></p>
-  <p class="fine center">General information to help you choose which towns to visit, not financial, tax or legal advice. Every number is dated and sourced.</p>
-</div></section>
-
-<section><div class="wrap">
-  <p class="kick">In every guide</p>
+<section class="alt"><div class="wrap">
+  <p class="kick">In every book</p>
   <h2>What you can count on</h2>
   <div class="features">
-    <div class="feat"><h3>Large print</h3><p>14-point type and plenty of space, so you can read it without hunting for your glasses.</p></div>
-    <div class="feat"><h3>Facts you can check</h3><p>Every date, name, price and opening was checked, and the sources are listed at the back of each guide.</p></div>
-    <div class="feat"><h3>Print what you need</h3><p>Read it on a tablet or computer, or print a page for the counter or the glove box. The Kitchen Guide includes a printable shopping list, and the Road Trip Guide a printable checklist.</p></div>
-    <div class="feat"><h3>Cups, spoons and °F</h3><p>American measures throughout, with a conversion page at the back of the Kitchen Guide.</p></div>
-    <div class="feat"><h3>Safety built in</h3><p>Safe internal temperatures from FoodSafety.gov, and plain warnings for hot oil, hot sugar and wild mushrooms.</p></div>
-    <div class="feat"><h3>Dated and sourced</h3><p>Every place to eat shows the date we confirmed it, and every town number is dated and sourced.</p></div>
+    <div class="feat"><h3>Large print</h3><p>Big type and plenty of space, so you can read it without hunting for your glasses.</p></div>
+    <div class="feat"><h3>Facts you can check</h3><p>Every date, name and story was checked, and the sources are listed at the back of each book.</p></div>
+    <div class="feat"><h3>Print what you need</h3><p>Read it on a tablet or computer, or print a recipe for the counter or a trip for the glove box.</p></div>
+    <div class="feat"><h3>Cups, spoons and °F</h3><p>American measures and grocery-store ingredients throughout.</p></div>
+    <div class="feat"><h3>Safety built in</h3><p>Safe internal temperatures, and plain warnings for hot oil and hot sugar.</p></div>
+    <div class="feat"><h3>Made by the channel</h3><p>Written by the people behind the Oregon Back Roads videos, from the same research.</p></div>
   </div>
-</div></section>
-
-<section id="set" class="alt"><div class="wrap">
-  <div class="setbox">
-    <div class="fan" role="img" aria-label="Covers of the three guides">
-      <img src="img/opt/cover-kitchen.jpg" width="360" height="450" alt="" loading="lazy">
-      <img src="img/opt/cover-quiet.jpg" width="360" height="466" alt="" loading="lazy">
-      <img src="img/opt/cover-roadtrip.jpg" width="360" height="466" alt="" loading="lazy">
-    </div>
-    <div>
-      <p class="kick">Best value</p>
-      <h2>All three for the price of two</h2>
-      <p>194 large-print pages: 12 road trips with 37 places to eat, 30 recipes and 18 towns compared. One payment, three PDFs, instant download.</p>
-      <p class="price"><b>$29.99</b> <s><span class="sr">Regular price: </span>$44.97</s></p>
-      <p class="math">Two guides: $29.98 · All three: $29.99</p>
-      <a class="btn gold" href="#" data-offer="set" data-pos="set">Get all three guides</a>
-    </div>
-  </div>
-  <p class="fine center" style="margin-top:16px">Already bought one guide? You can still buy the other two separately at $14.99 each.</p>
 </div></section>
 
 <section id="faq"><div class="wrap faq">
   <p class="kick">Questions</p>
-  <h2>Good to know before you buy</h2>
-  <details data-faq="what"><summary>What exactly do I get?</summary><p>A PDF file of each guide you choose, 2026–27 Edition. The Road Trip Guide has 60 pages, 12 trips and 37 places to eat. The Kitchen Guide has 86 letter-size pages and 30 recipes. The Quiet Life Guide has 48 pages and 18 towns. You can read them on a tablet, phone or computer, or print them at home.</p></details>
-  <details data-faq="download"><summary>How do I download it after I pay?</summary><p>Checkout is handled by Hotmart, our payment partner. Right after you pay, Hotmart sends you an email. Click the button in that email, create a password, and the guide is waiting under “My purchases,” ready to download. If you don't see the email within a few minutes, check your spam folder or write to us at <a class="mail" href="#">oregonbackroadsguides@gmail.com</a>.</p></details>
+  <h2>Good to know</h2>
+  <details data-faq="free"><summary>Are the 5 recipes really free?</summary><p>Yes. Type your email and the download opens right away, no credit card. Now and then we'll email you an Oregon story or news about our books, and every email has an unsubscribe link.</p></details>
+  <details data-faq="what"><summary>What's in the complete cookbook?</summary><p>A 76-page large-print PDF: 18 lost Oregon restaurants, each with its story, and 23 recipes, plus pages to write down your own memories and the list of every source we used. You can read it on a tablet, phone or computer, or print it at home.</p></details>
+  <details data-faq="download"><summary>How do I download a book after I pay?</summary><p>Checkout is handled by Hotmart, our payment partner. Right after you pay, Hotmart sends you an email. Click the button in that email, create a password, and the book is waiting under “My purchases,” ready to download. If you don't see the email within a few minutes, check your spam folder or write to us at <a class="mail" href="#">oregonbackroadsguides@gmail.com</a>.</p></details>
   <details data-faq="paypal"><summary>Can I pay with PayPal?</summary><p>Yes. Checkout accepts major credit and debit cards, and for buyers in the United States it also offers PayPal and Apple Pay.</p></details>
-  <details data-faq="recipes"><summary>Are these the restaurants' real recipes?</summary><p>No. Every recipe in the book is our own. The five Lost Portland dishes are written to bring back what those places were known for, and the history that goes with them was checked against the sources listed in the book.</p></details>
-  <details data-faq="outside"><summary>I don't live in Oregon. Will the recipes work?</summary><p>Yes. Every recipe uses ingredients from a regular grocery store, and anything that's hard to find outside Oregon (marionberries, Dungeness crab, chanterelles) comes with a swap.</p></details>
-  <details data-faq="open"><summary>Are the restaurants in the Road Trip Guide still open?</summary><p>Every place was confirmed open in November 2026 by two independent sources, and each one shows that date. Small-town places change hours with the seasons and sometimes close, so the guide tells you to call ahead. If you find one that has closed, write to us and we'll fix it in the next update.</p></details>
+  <details data-faq="recipes"><summary>Are these the restaurants' real recipes?</summary><p>No. Every recipe is our own, written to bring back what those places were known for. The stories that go with them were checked against newspaper reports, archives and local histories, listed at the back of the book.</p></details>
+  <details data-faq="outside"><summary>I don't live in Oregon anymore. Will the recipes work?</summary><p>Yes. Every recipe uses ingredients from a regular grocery store, and anything that's hard to find outside Oregon, like marionberries or Dungeness crab, comes with a swap.</p></details>
   <details data-faq="printed"><summary>Is this a printed book?</summary><p>No, it's a digital PDF. You're welcome to print it for your own use.</p></details>
-  <details data-faq="set"><summary>What's in the Complete Set?</summary><p>All three guides as three separate PDF files: The Oregon Road Trip Guide, The Oregon Kitchen Guide and The Oregon Quiet Life Guide, for $29.99 instead of $44.97. That's the price of two.</p></details>
   <details data-faq="refund"><summary>What if it's not for me?</summary><p>You have 7 days to ask for a full refund through Hotmart, no questions asked.</p></details>
 </div></section>
 
 <section class="final"><div class="wrap">
-  <h2>The back roads are waiting</h2>
-  <p class="lead">All three large-print guides for $29.99, the price of two. Instant download.</p>
-  <a class="btn gold" href="#" data-offer="set" data-pos="final">Get all three guides</a>
-  <p class="or">Or just one, $14.99 each:</p>
+  <h2>Bring back the places you miss</h2>
+  <p class="lead">Start with five recipes, free. When you want the rest, the complete cookbook is $17.</p>
+  <a class="btn gold" href="#free" data-track="final-free">Get the free recipes</a>
+  <p class="or">Or go straight to a book:</p>
   <div class="final-singles">
-    <a class="btn ghost" href="#" data-offer="roadtrip" data-pos="final">The Road Trip Guide</a>
+    <a class="btn ghost" href="#" data-offer="cookbook" data-pos="final">The Lost Restaurants Cookbook</a>
     <a class="btn ghost" href="#" data-offer="kitchen" data-pos="final">The Kitchen Guide</a>
-    <a class="btn ghost" href="#" data-offer="quiet" data-pos="final">The Quiet Life Guide</a>
+    <a class="btn ghost" href="#" data-offer="roadtrip" data-pos="final">The Road Trip Guide</a>
   </div>
   <p class="fine">Secure checkout by Hotmart · 7-day money-back guarantee</p>
 </div></section>
 
 <footer><div class="wrap">
   <p>© 2026 Oregon Back Roads · Questions: <a class="mail" href="#">oregonbackroadsguides@gmail.com</a> · <a href="https://www.youtube.com/@OregonBackRoadsTV">YouTube</a></p>
-  <p>This page uses Microsoft Clarity to see how visitors use it, so we can make it clearer. <a href="privacy.html">Privacy notice</a></p>
-  <p>Restaurant and brand names on this page and in the guides are used only to describe history and ingredients. Oregon Back Roads is not affiliated with, sponsored by or endorsed by any of these businesses or the owners of their names. The guides are general information, not financial, tax, legal or medical advice; hours, fees, prices and road conditions change, so check before you rely on them.</p>
+  <p>This page uses Microsoft Clarity to see how visitors use it, so we can make it clearer, and MailerLite to send the free recipes. <a href="privacy.html">Privacy notice</a></p>
+  <p>Restaurant and brand names on this page and in the books are used only to describe history and ingredients. Oregon Back Roads is not affiliated with, sponsored by or endorsed by any of these businesses or the owners of their names. Hours, fees, prices and road conditions change, so check before you rely on them.</p>
 </div></footer>
 
+<script src="funnel.js"></script>
 <script>
-  // "?v=12" (video QR) or "?v=12d" (video description) -> "v12" / "v12d"; anything else -> "site"
-  function videoCode(search) {
-    const v = new URLSearchParams(search).get("v");
-    return v && /^[a-z0-9]{1,12}$/.test(v) ? "v" + v : "site";
-  }
-  // Hotmart's sales-origin dashboard shows sck: <video code>|<button position>|<offer>
-  // (Hotmart rules: at most 30 characters, no "_", "|" as separator; the longest here is exactly 30)
-  function checkoutHref(offer, pos, code) {
-    const base = CHECKOUT[offer];
-    return base + (base.includes("?") ? "&" : "?") + "sck=" + code + "|" + pos + "|" + offer;
-  }
-  // Analytics must never break buying: links are set first, and a blocked or broken Clarity is ignored.
-  function track(...args) {
-    try { if (typeof window.clarity === "function") window.clarity(...args); } catch (e) {}
-  }
-
   const CODE = videoCode(location.search);
-  document.querySelectorAll("a[data-offer]").forEach(a => { a.href = checkoutHref(a.dataset.offer, a.dataset.pos, CODE); });
-  document.querySelectorAll("a.mail").forEach(a => { a.href = "mailto:" + CONTACT_EMAIL; a.textContent = CONTACT_EMAIL; });
+  setBuyLinks(CODE);
   track("set", "video", CODE);
-  document.addEventListener("click", e => {
-    const buy = e.target.closest("a[data-offer]");
-    if (buy) { track("event", "buy"); track("event", "buy-" + buy.dataset.offer + "-" + buy.dataset.pos); }
-    const tracked = e.target.closest("[data-track]");
-    if (tracked) track("event", tracked.dataset.track);
-  });
   document.querySelectorAll("details[data-faq]").forEach(d => {
     d.addEventListener("toggle", () => { if (d.open) track("event", "faq-" + d.dataset.faq); });
+  });
+
+  const form = document.getElementById("free"), email = document.getElementById("email");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const value = email.value.trim();
+    if (!validEmail(value)) {
+      form.classList.add("bad"); email.setAttribute("aria-invalid", "true"); email.setAttribute("aria-describedby", "email-err"); email.focus();
+      track("event", "signup-invalid");
+      return;
+    }
+    form.classList.remove("bad"); email.removeAttribute("aria-invalid");
+    const button = form.querySelector("button"); button.disabled = true; button.textContent = "Sending…";
+    // Bots fill the hidden field; they get the thank-you page but are never subscribed.
+    if (!document.getElementById("website").value && location.hostname === PROD_HOST) {
+      await subscribe(value);  // never blocks the download: a failed sign-up still goes to the thank-you page
+    }
+    track("event", "signup");
+    location.href = thanksUrl(CODE);
   });
 </script>
 </body>
