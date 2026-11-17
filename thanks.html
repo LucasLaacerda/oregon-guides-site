@@ -49,11 +49,12 @@ p{margin:0 0 12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:12px 24px;border-radius:8px;background:var(--rust);color:#fff;font-family:"Zilla Slab",serif;font-weight:700;font-size:21px;line-height:1.15;text-align:center;text-decoration:none;box-shadow:0 3px 0 #6f2f15}
 .btn.gold{background:var(--ochre);color:#21180F;box-shadow:0 3px 0 #8a5d17}
 .btn.block{display:flex;width:100%}
-.ready{background:var(--cream);border-bottom:6px solid var(--bark);padding:26px 0 30px}
+.ready{background:var(--cream);border-bottom:6px solid var(--bark);padding:16px 0 20px}
+.ready p{margin:0 0 12px}
 .ready .row{display:flex;align-items:center;margin:14px 0 18px}
 .ready .row img{width:96px;flex:none;margin-right:16px;box-shadow:0 4px 12px rgba(40,30,20,.3)}
 .ready .row p{margin:0}
-.offer{padding:30px 0 40px}
+.offer{padding:16px 0 40px}
 .box{background:var(--fir);color:var(--cream);border-radius:12px;padding:20px 18px}
 .box h2{color:#FBF4E4}
 .box .kick{color:var(--gold-on-dark)}
@@ -61,9 +62,11 @@ p{margin:0 0 12px}
 .box .row img{width:110px;flex:none;margin-right:16px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
 .box ul{margin:0;padding-left:1.1em;font-size:18px}
 .box li{margin:4px 0}
-.price{font-family:"Zilla Slab",serif;margin:8px 0 14px}
+.price{font-family:"Zilla Slab",serif;margin:4px 0 10px}
 .price b{font-size:40px;color:#FBF4E4}
 .price s{font-size:20px;color:#D9CDB3;margin-left:8px}
+.save{display:inline-block;vertical-align:8px;margin-left:12px;padding:3px 10px;border-radius:99px;background:var(--gold-on-dark);color:#21180F;font-size:16px;font-weight:700}
+.box{border:3px solid var(--gold-on-dark);box-shadow:0 6px 18px rgba(40,30,20,.25)}
 .box .fine{color:#D9CDB3;margin:12px 0 0}
 footer{background:var(--fir);color:#D9CDB3;font-size:16px;padding:24px 0 72px}
 footer a{color:var(--cream)}
@@ -76,19 +79,17 @@ footer a{color:var(--cream)}
 <section class="ready"><div class="wrap">
   <p class="kick">Thank you</p>
   <h1>Your free recipes are ready</h1>
-  <div class="row">
-    <img src="img/opt/cover-sample.jpg" width="360" height="466" alt="Cover of the free sample">
-    <p>Five lost Oregon restaurants, their stories, and six recipes, in large print. Save it to your phone or computer, or print the recipes you want.</p>
-  </div>
-  <a class="btn gold block" href="free/Lost-Oregon-Restaurants-FREE-SAMPLE.pdf" download data-track="download" data-hero-cta>Download the free recipes (PDF)</a>
-  <p class="fine" style="margin-top:12px">If the file opens instead of saving, that's fine too: you can read it right there, or tap Share to save it.</p>
+  <p>Five lost Oregon restaurants, their stories and six recipes, in large print.</p>
+  <a class="btn block" href="free/Lost-Oregon-Restaurants-FREE-SAMPLE.pdf" download data-track="download" data-hero-cta>Download the free recipes (PDF)</a>
 </div></section>
 
 <section class="offer"><div class="wrap">
   <div class="box">
     <p class="kick">For sample readers</p>
     <h2>Want the other 13 places?</h2>
-    <div class="row">
+    <p class="price"><b>$12</b><s><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Regular price: </span>$17</s><span class="save">Save $5</span></p>
+    <a class="btn gold block" href="#" data-offer="cookbook12" data-pos="thanks">Get the complete cookbook for $12</a>
+    <div class="row" style="margin-top:18px">
       <img src="img/opt/cover-cookbook.jpg" width="360" height="466" alt="Cover of The Lost Oregon Restaurants Cookbook">
       <ul>
         <li>18 lost restaurants, 23 recipes</li>
@@ -96,10 +97,9 @@ footer a{color:var(--cream)}
         <li>Pages for your own memories</li>
       </ul>
     </div>
-    <p class="price"><b>$12</b><s><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Regular price: </span>$17</s></p>
-    <a class="btn gold block" href="#" data-offer="cookbook12" data-pos="thanks">Get the complete cookbook for $12</a>
     <p class="fine">The reader price is for people who got the free sample. Instant PDF · secure checkout by Hotmart · 7-day money-back guarantee.</p>
   </div>
+  <p class="fine" style="margin-top:16px">Free recipes: if the file opens instead of saving, that's fine too. You can read it right there, or tap Share to save it.</p>
 </div></section>
 
 <footer><div class="wrap">
